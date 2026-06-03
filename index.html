@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>BLACKANUS | Official Website</title>
+  <meta name="description" content="BLACKANUS — official personal website." />
+
+  <style>
+    :root {
+      --background: #050505;
+      --background-soft: #0c0c0c;
+      --surface: #111111;
+      --surface-light: #181818;
+      --text: #f3f0ea;
+      --muted: #a8a097;
+      --border: #2c2c2c;
+      --gold: #c8a75d;
+      --gold-soft: rgba(200, 167, 93, 0.16);
+      --shadow: rgba(0, 0, 0, 0.65);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: Georgia, "Times New Roman", serif;
+      background:
+        radial-gradient(circle at top left, rgba(200, 167, 93, 0.12), transparent 34rem),
+        linear-gradient(135deg, #050505 0%, #0a0a0a 48%, #000000 100%);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      width: min(1120px, 92%);
+      margin: 0 auto;
+    }
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      background: rgba(5, 5, 5, 0.86);
+      border-bottom: 1px solid var(--border);
+      backdrop-filter: blur(10px);
+    }
+
+    .header-inner {
+      height: 76px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-size: 1.25rem;
+      font-weight: bold;
+      letter-spacing: 0.18em;
+      color: var(--text);
+    }
+
+    .logo span {
+      color: var(--gold);
+    }
+
+    .nav {
+      display: flex;
+      gap: 28px;
+      font-size: 0.86rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    .nav a:hover {
+      color: var(--gold);
+    }
+
+    .hero {
+      min-height: calc(100vh - 76px);
+      display: flex;
+      align-items: center;
+      padding: 78px 0;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.04fr 0.96fr;
+      gap: 60px;
+      align-items: center;
+    }
+
+    .eyebrow {
+      margin: 0 0 16px;
+      text-transform: uppercase;
+      letter-spacing: 0.22em;
+      color: var(--gold);
+      font-size: 0.74rem;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(3.8rem, 8.5vw, 8rem);
+      line-height: 0.9;
+      letter-spacing: -0.045em;
+      text-transform: uppercase;
+    }
+
+    .rule {
+      width: 96px;
+      height: 1px;
+      margin: 28px 0;
+      background: var(--gold);
+    }
+
+    .sign-board {
+      display: inline-block;
+      margin: 0 0 26px;
+      padding: 18px 28px;
+      background: linear-gradient(135deg, #151515, #0a0a0a);
+      border: 1px solid var(--gold);
+      box-shadow: 0 18px 40px var(--shadow), inset 0 0 0 1px rgba(255, 255, 255, 0.04);
+    }
+
+    .sign-board p {
+      margin: 0;
+      font-size: clamp(1.3rem, 2.8vw, 2.05rem);
+      line-height: 1.15;
+      letter-spacing: 0.02em;
+    }
+
+    .sign-board strong {
+      color: var(--gold);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .hero-text {
+      max-width: 620px;
+      margin: 0 0 32px;
+      font-size: 1.12rem;
+      color: var(--muted);
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .button {
+      display: inline-block;
+      padding: 12px 20px;
+      border: 1px solid var(--gold);
+      font-size: 0.84rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      transition: transform 180ms ease, background 180ms ease, color 180ms ease;
+    }
+
+    .button:hover {
+      transform: translateY(-2px);
+    }
+
+    .button.primary {
+      background: var(--gold);
+      color: #050505;
+    }
+
+    .button.secondary {
+      background: transparent;
+      color: var(--gold);
+    }
+
+    .portrait-card {
+      position: relative;
+      background: linear-gradient(135deg, #161616, #080808);
+      border: 1px solid var(--border);
+      padding: 16px;
+      box-shadow: 0 30px 70px var(--shadow);
+    }
+
+    .portrait-card::before {
+      content: "";
+      position: absolute;
+      inset: -1px;
+      z-index: -1;
+      background: linear-gradient(135deg, rgba(200, 167, 93, 0.7), transparent 45%, rgba(200, 167, 93, 0.28));
+    }
+
+    .portrait-card img {
+      display: block;
+      width: 100%;
+      aspect-ratio: 4 / 5;
+      object-fit: cover;
+      object-position: center top;
+      border: 1px solid rgba(200, 167, 93, 0.42);
+      background: #ffffff;
+      filter: contrast(1.04) saturate(0.92);
+    }
+
+    .caption {
+      margin: 16px 0 0;
+      color: var(--gold);
+      font-size: 0.82rem;
+      text-align: center;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+    }
+
+    .section {
+      padding: 82px 0;
+      border-top: 1px solid var(--border);
+      background: rgba(5, 5, 5, 0.48);
+    }
+
+    .section:nth-of-type(even) {
+      background: rgba(17, 17, 17, 0.72);
+    }
+
+    .section h2 {
+      margin: 0 0 18px;
+      font-size: clamp(2rem, 4vw, 3.35rem);
+      line-height: 1.08;
+      text-transform: uppercase;
+      letter-spacing: -0.035em;
+    }
+
+    .section p {
+      max-width: 760px;
+      color: var(--muted);
+      font-size: 1.08rem;
+    }
+
+    .site-footer {
+      padding: 30px 0;
+      border-top: 1px solid var(--border);
+      color: var(--muted);
+      background: #030303;
+    }
+
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      flex-wrap: wrap;
+      font-size: 0.86rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    @media (max-width: 840px) {
+      .header-inner {
+        height: auto;
+        padding: 18px 0;
+        align-items: flex-start;
+        gap: 16px;
+        flex-direction: column;
+      }
+
+      .nav {
+        flex-wrap: wrap;
+        gap: 14px 22px;
+      }
+
+      .hero {
+        min-height: auto;
+        padding: 58px 0;
+      }
+
+      .hero-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+
+      .portrait-card {
+        box-shadow: 0 20px 44px var(--shadow);
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="logo" href="#"><span>BLACK</span>ANUS</a>
+
+      <nav class="nav" aria-label="Main navigation">
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="container hero-grid">
+        <div class="hero-content">
+          <p class="eyebrow">Official Personal Website</p>
+
+          <h1>BLACKANUS</h1>
+
+          <div class="rule"></div>
+
+          <div class="sign-board">
+            <p>Hi, this is <strong>BLACKANUS!</strong></p>
+          </div>
+
+          <p class="hero-text">
+            Welcome to the official website of BLACKANUS. This static homepage
+            is designed with a black, formal, and polished visual style for
+            personal information, projects, updates, and public records.
+          </p>
+
+          <div class="hero-actions">
+            <a class="button primary" href="#about">About BLACKANUS</a>
+            <a class="button secondary" href="#projects">View Projects</a>
+          </div>
+        </div>
+
+        <figure class="portrait-card">
+          <img src="assets/blackanus.jpeg" alt="Portrait of BLACKANUS" />
+          <figcaption class="caption">BLACKANUS</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="section" id="about">
+      <div class="container">
+        <p class="eyebrow">About</p>
+        <h2>About BLACKANUS</h2>
+        <p>
+          BLACKANUS is the owner of this website. The page is built as a simple,
+          fast, and easy-to-edit static website that can later be expanded into
+          a personal archive, public profile, blog, gallery, or project page.
+        </p>
+      </div>
+    </section>
+
+    <section class="section" id="projects">
+      <div class="container">
+        <p class="eyebrow">Projects</p>
+        <h2>Projects and Updates</h2>
+        <p>
+          This section can be used for current projects, public announcements,
+          writing, records, links, or selected personal updates.
+        </p>
+      </div>
+    </section>
+
+    <section class="section" id="contact">
+      <div class="container">
+        <p class="eyebrow">Contact</p>
+        <h2>Contact</h2>
+        <p>
+          Add an email address, social-media link, or contact form link here.
+          For a static website, a direct email link is usually the simplest
+          contact method.
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <span>© <span id="year"></span> BLACKANUS</span>
+      <span>Static Website</span>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
